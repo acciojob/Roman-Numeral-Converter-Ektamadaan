@@ -1,24 +1,32 @@
 function convertToRoman(num) {
-  	const obj = {
-      0:['M',1000], 
-      1:['D', 500], 
-      2:['C', 100], 
-      3:['L', 50], 
-      4:['X', 10], 
-      5:['V', 5], 
-      6:['I', 1]
-    };
+  	let standard = {
+	   [ "I" , 1] ,
+		["IV", 4],
+		["V", 5],
+		["IX", 9],
+		["X", 10],
+		["XL", 40],
+		["L", 50],
+		["XC", 90],
+		["C", 100],
+		["CD", 400],
+		["D", 500],
+		["CM", 900],
+		["M", 1000]
+    }
 
   //your code here
-	let result = '';
-	for(let i = 0 ; i < obj.length; i++){
-		const {value , numeral} = obj[i];
-		while(num >= value){
-			result += numeral;
-			num -= value ;
+	
+	for(let i = 0 ; i < standard.length; i++){
+		let currentVal = standard[i][1];
+		if( currentVal === n){
+			return standard[i][0];
+		}
+		if(currentVal > n){
+			return standard[i-1][0];
 		}
 	}
-return result;
+	return "M";
 }
 // You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
 
